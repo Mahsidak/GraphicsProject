@@ -150,6 +150,107 @@ void HighWay()
 
 }
 
+void RoadLights1()
+{
+    float a;
+	for(a=0; a<=1280; a+=70)
+    {
+        float b=a+3;
+        glColor3ub(0, 0, 0);
+        glBegin(GL_QUADS);
+        glVertex2i(a,200);
+        glVertex2i(b,200);
+        glVertex2i(b,218);
+        glVertex2i(a,218);
+        glEnd();
+        glColor3ub(255, 255, 255);
+        glBegin(GL_QUADS);
+        glVertex2i(a,218);
+        glVertex2i(b,218);
+        glVertex2i(b,223);
+        glVertex2i(a,223);
+        glEnd();
+    }
+}
+
+void RoadLights2()
+{
+	float a;
+	for(a=35; a<=1280; a+=70)
+    {
+        float b=a+3;
+        glColor3ub(0, 0, 0);
+        glBegin(GL_QUADS);
+        glVertex2i(a,250);
+        glVertex2i(b,250);
+        glVertex2i(b,268);
+        glVertex2i(a,268);
+        glEnd();
+        glColor3ub(255, 255, 255);
+        glBegin(GL_QUADS);
+        glVertex2i(a,268);
+        glVertex2i(b,268);
+        glVertex2i(b,273);
+        glVertex2i(a,273);
+        glEnd();
+    }
+}
+
+void Building()
+{
+        int a= 20;
+        int b= 100;
+        ///first floor
+        int color[3]={38, 96, 153};
+        glColor3ub(color[0],color[1],color[2]);
+        glBegin(GL_QUADS);
+        glVertex2i(a,280);
+        glVertex2i(b,280);
+        glVertex2i(b,320);
+        glVertex2i(a,320);
+        glEnd();
+        glColor3ub(225,225,225);
+        glBegin(GL_QUADS);
+        glVertex2i(a+20,280);
+        glVertex2i(b-20,280);
+        glVertex2i(b-20,300);
+        glVertex2i(a+20,300);
+        glEnd();
+        ///second floor
+        glColor3ub(color[0],color[1],color[2]);
+        glBegin(GL_QUADS);
+        glVertex2i(a+5,320);
+        glVertex2i(b-5,320);
+        glVertex2i(b-5,360);
+        glVertex2i(a+5,360);
+        glEnd();
+        ///third floor
+        glColor3ub(color[0],color[1],color[2]);
+        glBegin(GL_QUADS);
+        glVertex2i(a+10,360);
+        glVertex2i(b-10,360);
+        glVertex2i(b-10,400);
+        glVertex2i(a+10,400);
+        glEnd();
+        ///fourth floor
+        glColor3ub(color[0],color[1],color[2]);
+        glBegin(GL_QUADS);
+        glVertex2i(a+15,400);
+        glVertex2i(b-15,400);
+        glVertex2i(b-15,440);
+        glVertex2i(a+15,440);
+        glEnd();
+        glColor3ub(200,200,200);
+        glBegin(GL_QUADS);
+        glVertex2i(a+39,440);
+        glVertex2i(b-39,440);
+        glVertex2i(b-39,470);
+        glVertex2i(a+39,470);
+        glEnd();
+
+
+}
+
 void Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -158,7 +259,12 @@ void Display()
     Sun();
     Hill();
     River();
+    Building();
     HighWay();
+    RoadLights1();
+    RoadLights2();
+
+
     glFlush();
 }
 
