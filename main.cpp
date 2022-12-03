@@ -14,7 +14,7 @@ void init()
 	gluOrtho2D(0.0,1280,0.0,720);
 }
 
-void land()
+void Land()
 {
 	glColor3ub(0,130, 50);
 	glBegin(GL_QUADS);
@@ -24,7 +24,7 @@ void land()
 	glVertex2i(0, 450);///TopLeft
 	glEnd();
 }
-void sky(){
+void Sky(){
     glColor3ub(45, 139, 237);
 	glBegin(GL_QUADS);
     glVertex2i(0, 720);
@@ -91,7 +91,7 @@ void Hill()
     glEnd();
 }
 
-void sun()
+void Sun()
 {
     glPushMatrix();
     glTranslatef(600,660, 0);
@@ -110,15 +110,55 @@ for(int i=0;i<200;i++)
    glPopMatrix();
 }
 
-void display()
+void HighWay()
+{
+    ///main road
+    glColor3ub(66, 66, 49);
+	glBegin(GL_QUADS);
+	glVertex2i(0,250);
+	glVertex2i(1280,250);
+	glVertex2i(1280,200);
+	glVertex2i(0,200);
+	glEnd();
+
+    ///sub road 1
+	glColor3ub(66, 66, 49);
+	glBegin(GL_QUADS);
+	glVertex2i(300,250);
+	glVertex2i(330-10,250);
+	glVertex2i(300-10,450);
+	glVertex2i(270,450);
+	glEnd();
+
+    ///sub road 2
+    glColor3ub(66, 66, 49);
+	glBegin(GL_QUADS);
+	glVertex2i(940,450);
+	glVertex2i(960,450);
+	glVertex2i(960,250);
+	glVertex2i(940,250);
+	glEnd();
+
+    ///divider
+	glColor3ub(255, 255, 255);
+	glBegin(GL_LINES);
+	glVertex2i(0,222);
+	glVertex2i(1280,222);
+	glVertex2i(0,225);
+	glVertex2i(1280,225);
+	glEnd();
+
+}
+
+void Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
-	sky();
-    land();
-    sun();
+	Sky();
+    Land();
+    Sun();
     Hill();
     River();
-
+    HighWay();
     glFlush();
 }
 
@@ -127,7 +167,7 @@ int main(int argc,char **argv)
 	glutInit(&argc, argv);
 	glutInitWindowSize(1280, 720);
 	glutCreateWindow("Urban Landscape");
-	glutDisplayFunc(display);
+	glutDisplayFunc(Display);
     init();
 
 	glutMainLoop();
