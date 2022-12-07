@@ -195,62 +195,59 @@ void RoadLights2()
         glEnd();
     }
 }
-
-void Building()
+void Building1(int a, int b , int c , int d, int color[3])
 {
-        int a= 20;
-        int b= 100;
-        ///first floor
-        int color[3]={38, 96, 153};
+        ///for x axis /// difference = 80
+        ///for y axis /// difference = 40
+
         glColor3ub(color[0],color[1],color[2]);
         glBegin(GL_QUADS);
-        glVertex2i(a,280);
-        glVertex2i(b,280);
-        glVertex2i(b,320);
-        glVertex2i(a,320);
+        glVertex2i(a,c);
+        glVertex2i(b,c);
+        glVertex2i(b,d);
+        glVertex2i(a,d);
         glEnd();
         glColor3ub(225,225,225);
         glBegin(GL_QUADS);
-        glVertex2i(a+20,280);
-        glVertex2i(b-20,280);
-        glVertex2i(b-20,300);
-        glVertex2i(a+20,300);
+        glVertex2i(a+20,c);
+        glVertex2i(b-20,c);
+        glVertex2i(b-20,d-20);
+        glVertex2i(a+20,d-20);
         glEnd();
         ///second floor
         glColor3ub(color[0],color[1],color[2]);
         glBegin(GL_QUADS);
-        glVertex2i(a+5,320);
-        glVertex2i(b-5,320);
-        glVertex2i(b-5,360);
-        glVertex2i(a+5,360);
+        glVertex2i(a+5,c+40);
+        glVertex2i(b-5,c+40);
+        glVertex2i(b-5,d+40);
+        glVertex2i(a+5,d+40);
         glEnd();
         ///third floor
         glColor3ub(color[0],color[1],color[2]);
         glBegin(GL_QUADS);
-        glVertex2i(a+10,360);
-        glVertex2i(b-10,360);
-        glVertex2i(b-10,400);
-        glVertex2i(a+10,400);
+        glVertex2i(a+10,c+80);
+        glVertex2i(b-10,c+80);
+        glVertex2i(b-10,d+80);
+        glVertex2i(a+10,d+80);
         glEnd();
         ///fourth floor
         glColor3ub(color[0],color[1],color[2]);
         glBegin(GL_QUADS);
-        glVertex2i(a+15,400);
-        glVertex2i(b-15,400);
-        glVertex2i(b-15,440);
-        glVertex2i(a+15,440);
+        glVertex2i(a+15,c+120);
+        glVertex2i(b-15,c+120);
+        glVertex2i(b-15,d+120);
+        glVertex2i(a+15,d+120);
         glEnd();
         glColor3ub(200,200,200);
         glBegin(GL_QUADS);
-        glVertex2i(a+39,440);
-        glVertex2i(b-39,440);
-        glVertex2i(b-39,470);
-        glVertex2i(a+39,470);
+        glVertex2i(a+39,c+160);
+        glVertex2i(b-39,c+160);
+        glVertex2i(b-39,d+160);
+        glVertex2i(a+39,d+160);
         glEnd();
 
 
 }
-
 void Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -259,11 +256,18 @@ void Display()
     Sun();
     Hill();
     River();
-    Building();
     HighWay();
     RoadLights1();
     RoadLights2();
 
+    int color[3]={85, 184, 212};
+    Building1(20,100,280,320,color); //a //b //c //d //color
+
+    int color1[3]={79, 170, 196};
+    Building1(110,190,280,320,color1);
+
+    int color2[3]={106, 203, 230};
+    Building1(200,280,280,320,color2);
 
     glFlush();
 }
