@@ -139,6 +139,15 @@ void HighWay()
 	glVertex2i(940,250);
 	glEnd();
 
+	///sub road 3
+	glColor3ub(66, 66, 49);
+	glBegin(GL_QUADS);
+	glVertex2i(0,375);
+	glVertex2i(0,365);
+	glVertex2i(300,365);
+	glVertex2i(300,375);
+	glEnd();
+
     ///divider
 	glColor3ub(255, 255, 255);
 	glBegin(GL_LINES);
@@ -303,6 +312,70 @@ void PlayGroud()
         glVertex2i(144,340);
         glVertex2i(186,340);
         glEnd();
+
+        ///side road
+        glColor3ub(66, 66, 49);
+        glBegin(GL_QUADS);
+        glVertex2i(202,345);
+        glVertex2i(290,345);
+        glVertex2i(290,358);
+        glVertex2i(200,358);
+        glEnd();
+        ///parking
+        glColor3ub(66, 66, 49);
+        glBegin(GL_QUADS);
+        glVertex2i(210,260);
+        glVertex2i(255,260);
+        glVertex2i(238,358);
+        glVertex2i(193,358);
+        glEnd();
+
+        ///Facility Building
+        glColor3ub(160, 201, 217);
+        glBegin(GL_QUADS);
+        glVertex2i(290,290);
+        glVertex2i(260,290);
+        glVertex2i(250,350);
+        glVertex2i(281,350);
+        glEnd();
+        glColor3ub(250, 250, 250);
+        glBegin(GL_QUADS);
+        glVertex2i(256,280);
+        glVertex2i(286,280);
+        glVertex2i(290,290);
+        glVertex2i(260,290);
+        glEnd();
+        glColor3ub(221, 221, 221);
+        glBegin(GL_QUADS);
+        glVertex2i(256,280);
+        glVertex2i(260,290);///bottom right
+        glVertex2i(250,350);///top right
+        glVertex2i(247,337);
+        glEnd();
+
+        ///fences
+        for(int a=0; a<=280; a+=3)
+        {
+            glLineWidth(1);
+            glColor3ub(50, 51, 51);
+            glBegin(GL_LINES);
+            glVertex2i(a,360);
+            glVertex2i(a,390);
+
+            glVertex2i(a,255);
+            glVertex2i(a,280);
+            glEnd();
+        }
+        for(int a=283; a<=296; a+=3)
+        {
+            glLineWidth(1);
+            glColor3ub(50, 51, 51);
+            glBegin(GL_LINES);
+            glVertex2i(a,255);
+            glVertex2i(a,280);
+            glEnd();
+        }
+
 }
 void HillTree1(int y1, int y2)
 {
@@ -468,8 +541,7 @@ void Hospital(int a, int b , int c , int d, int color[3])
 
 void Building2(int a, int b , int c , int d, int color[3])
 {
-        ///for x axis /// difference = 80
-        ///for y axis /// difference = 40
+        ///for x axis /// difference = 50
 
         glColor3ub(color[0],color[1],color[2]);
         glBegin(GL_QUADS);
@@ -511,6 +583,66 @@ void Building2(int a, int b , int c , int d, int color[3])
         glEnd();
 
 }
+
+void Building3(int a, int b , int c , int d, int color[3])
+{
+        ///for x axis /// difference = 70
+
+        glColor3ub(color[0],color[1],color[2]);
+        glBegin(GL_QUADS);
+        glVertex2i(a,c);
+        glVertex2i(b,c);
+        glVertex2i(a,d);
+        glVertex2i(a,d);
+        glEnd();
+        glLineWidth(1);
+        glBegin(GL_LINES);
+        glColor3ub(200,200,200);
+        glVertex2i(a,d-3);
+        glVertex2i(a,d+20);
+        glEnd();
+        float counter=1;
+        for (int i=a+2;i<b;i+=2){
+            glLineWidth(1);
+            glBegin(GL_LINES);
+            glColor3ub(80,80,80);
+            glVertex2f(i,d-counter);
+            glVertex2f(i,c);
+            glEnd();
+            counter+=6.7;
+        }
+
+}
+
+void Building4(int a, int b , int c , int d, int color[3])
+{
+        ///for x axis /// difference = 70
+
+        glColor3ub(190,190,190);
+        glBegin(GL_QUADS);
+        glVertex2i(a,c);///bottom left
+        glVertex2i(a,d);///top left
+        glVertex2i(b,d);///top right
+        glVertex2i(b,c);///bottom right
+        glEnd();
+        glColor3ub(color[0],color[1],color[2]);
+        glBegin(GL_QUADS);
+        glVertex2i(a,c);///bottom left
+        glVertex2i(a,d);///top left
+        glVertex2i(b,d);///top right
+        glVertex2i(b-40,c);///bottom right
+        glEnd();
+        for (int i=a;i<b;i+=4){
+            glLineWidth(1);
+            glBegin(GL_LINES);
+            glColor3ub(80,80,80);
+            glVertex2f(i,d);
+            glVertex2f(i,c);
+            glEnd();
+        }
+
+
+}
 void Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -519,11 +651,8 @@ void Display()
     Sun();
     Hill();
     HillTree1(440,465);
-
-    River();
     HighWay();
-    RoadLights1();
-    RoadLights2();
+    River();
 
     int color[3]={45, 93, 168};
     Building1(10,90,380,420,color); ///a //b //c //d //color
@@ -559,17 +688,20 @@ void Display()
     int color5[3]={45, 93, 168};
     Hospital(700,810,270,310,color5);
 
-    int color6[3]={44, 73, 133};
-    Hospital(820,930,270,310,color6);
+    int color12[3]={91, 172, 199};
+    Building3(820,920,270,600,color12);///for x axis /// difference = 70
 
     int color11[3]={169, 174, 176};
-    Building2(580,690,270,600,color11);
+    Building2(580,690,270,600,color11);///for x axis /// difference = 50
+    int color13[3]={161, 159, 159};
+    Building4(970,1040,270,530,color13);///for x axis /// difference = 70
 
     PlayGroud();
-    HillTree1(255,270);
+    RoadLights1();
+    HillTree2(253,270);
     HillTree1(180,205);
     HillTree2(170,195);
-
+    RoadLights2();
 
     glFlush();
 }
