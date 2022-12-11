@@ -449,94 +449,18 @@ void Hospital(int a, int b , int c , int d, int color[3])
         glBegin(GL_QUADS);
         glVertex2i(a+20,c);
         glVertex2i(b-20,c);
-        glVertex2i(b-20,d-20);
-        glVertex2i(a+20,d-20);
-        glEnd();
-        ///second floor
-        glColor3ub(color[0],color[1],color[2]);
-        glBegin(GL_QUADS);
-        glVertex2i(a,c+40);
-        glVertex2i(b,c+40);
-        glVertex2i(b,d+40);
-        glVertex2i(a,d+40);
-        glEnd();
-        glColor3ub(141, 142, 145);
-        glBegin(GL_QUADS);
-        glVertex2i(a+10,c+50);
-        glVertex2i(a+30,c+50);
-        glVertex2i(a+30,d+30);
-        glVertex2i(a+10,d+30);
-        glEnd();
-        glBegin(GL_QUADS);
-        glVertex2i(a+45,c+50);
-        glVertex2i(a+65,c+50);
-        glVertex2i(a+65,d+30);
-        glVertex2i(a+45,d+30);
-        glEnd();
-        glBegin(GL_QUADS);
-        glVertex2i(a+80,c+50);
-        glVertex2i(a+100,c+50);
-        glVertex2i(a+100,d+30);
-        glVertex2i(a+80,d+30);
+        glVertex2i(b-20,c+20);
+        glVertex2i(a+20,c+20);
         glEnd();
 
-        ///third floor
-        glColor3ub(color[0],color[1],color[2]);
-        glBegin(GL_QUADS);
-        glVertex2i(a,c+80);
-        glVertex2i(b,c+80);
-        glVertex2i(b,d+80);
-        glVertex2i(a,d+80);
+        for(int i=c+25;  i<d;  i+=5){
+        glBegin(GL_LINES);
+        glColor3ub(69, 69, 69);
+        glVertex2i(a,i);
+        glVertex2i(b,i);
         glEnd();
+        }
 
-        glColor3ub(141, 142, 145);
-        glBegin(GL_QUADS);
-        glVertex2i(a+10,c+90);
-        glVertex2i(a+30,c+90);
-        glVertex2i(a+30,d+70);
-        glVertex2i(a+10,d+70);
-        glEnd();
-        glBegin(GL_QUADS);
-        glVertex2i(a+45,c+90);
-        glVertex2i(a+65,c+90);
-        glVertex2i(a+65,d+70);
-        glVertex2i(a+45,d+70);
-        glEnd();
-        glBegin(GL_QUADS);
-        glVertex2i(a+80,c+90);
-        glVertex2i(a+100,c+90);
-        glVertex2i(a+100,d+70);
-        glVertex2i(a+80,d+70);
-        glEnd();
-
-        ///fourth floor
-        glColor3ub(color[0],color[1],color[2]);
-        glBegin(GL_QUADS);
-        glVertex2i(a,c+120);
-        glVertex2i(b,c+120);
-        glVertex2i(b,d+120);
-        glVertex2i(a,d+120);
-        glEnd();
-
-        glColor3ub(141, 142, 145);
-        glBegin(GL_QUADS);
-        glVertex2i(a+10,c+130);
-        glVertex2i(a+30,c+130);
-        glVertex2i(a+30,d+110);
-        glVertex2i(a+10,d+110);
-        glEnd();
-        glBegin(GL_QUADS);
-        glVertex2i(a+45,c+130);
-        glVertex2i(a+65,c+130);
-        glVertex2i(a+65,d+110);
-        glVertex2i(a+45,d+110);
-        glEnd();
-        glBegin(GL_QUADS);
-        glVertex2i(a+80,c+130);
-        glVertex2i(a+100,c+130);
-        glVertex2i(a+100,d+110);
-        glVertex2i(a+80,d+110);
-        glEnd();
 }
 
 void Building2(int a, int b , int c , int d, int color[3])
@@ -641,8 +565,99 @@ void Building4(int a, int b , int c , int d, int color[3])
             glEnd();
         }
 
-
 }
+
+void Stadium(){
+
+    glLineWidth(2);
+    glBegin(GL_LINES);
+    glColor3ub(0,0,0);
+    glVertex2i(980,440);
+    glVertex2i(1000,460);
+    glVertex2i(987,440);
+    glVertex2i(1007,460);
+    ///
+    glVertex2i(1253,440);
+    glVertex2i(1233,460);
+    glVertex2i(1260,440);
+    glVertex2i(1240,460);
+    glEnd();
+
+    for(int i=1040;i<1200;i+=20)
+    {
+        glLineWidth(1);
+        glBegin(GL_LINES);
+        glColor3ub(0,0,0);
+        glVertex2i(1007,460);
+        glVertex2i(i,420);
+        glEnd();
+    }
+    for(int i=1200;i>1040;i-=20)
+    {
+        glLineWidth(1);
+        glBegin(GL_LINES);
+        glColor3ub(0,0,0);
+        glVertex2i(1233,460);
+        glVertex2i(i,420);
+        glEnd();
+    }
+
+    glColor3ub(190, 190, 190);
+    glBegin(GL_QUADS);
+    glVertex2i(980,320);///bottom left
+    glVertex2i(980,440);///top left
+    glVertex2i(987,440);///top right
+    glVertex2i(987,320);///bottom right
+    glEnd();
+    glBegin(GL_QUADS);
+    glVertex2i(1000,320);///bottom left
+    glVertex2i(1000,460);///top left
+    glVertex2i(1007,460);///top right
+    glVertex2i(1007,320);///bottom right
+    glEnd();
+    glBegin(GL_QUADS);
+    glVertex2i(1253,320);///bottom left
+    glVertex2i(1253,440);///top left
+    glVertex2i(1260,440);///top right
+    glVertex2i(1260,320);///bottom right
+    glEnd();
+    glBegin(GL_QUADS);
+    glVertex2i(1233,320);///bottom left
+    glVertex2i(1233,460);///top left
+    glVertex2i(1240,460);///top right
+    glVertex2i(1240,320);///bottom right
+    glEnd();
+
+    glColor3ub(215, 218, 219);
+    glBegin(GL_QUADS);
+    glVertex2i(1030,320);///bottom left
+    glVertex2i(970,400);///top left
+    glVertex2i(1270,400);///top right
+    glVertex2i(1210,320);///bottom right
+    glEnd();
+    glColor3ub(190, 190, 190);
+    glBegin(GL_QUADS);
+    glVertex2i(970,400);///bottom left
+    glVertex2i(990,420);///top left
+    glVertex2i(1250,420);///top right
+    glVertex2i(1270,400);///bottom right
+    glEnd();
+    ///roads
+    glColor3ub(66, 66, 49);
+	glBegin(GL_QUADS);
+	glVertex2i(1030,310);///bottom left
+    glVertex2i(970,320);///top left
+    glVertex2i(1270,320);///top right
+    glVertex2i(1210,310);///bottom right
+	glEnd();
+	glBegin(GL_QUADS);
+	glVertex2i(960,260);///bottom left
+    glVertex2i(960,300);///top left
+    glVertex2i(1280,300);///top right
+    glVertex2i(1280,260);///bottom right
+	glEnd();
+}
+
 void Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -664,37 +679,38 @@ void Display()
     Building1(190,270,380,420,color2);
 
     ///
-    int color7[3]={99, 122, 194};
-    Hospital(320,430,310,350,color7);
+    int color3[3]={99, 122, 194};
+    Hospital(320,430,310,500,color3);
 
-    int color8[3]={70, 160, 179};
-    Hospital(440,550,310,350,color8);
+    int color4[3]={70, 160, 179};
+    Hospital(440,550,310,500,color4);
 
-    int color9[3]={99, 122, 194};
-    Hospital(680,790,310,350,color9);
+    int color5[3]={99, 122, 194};
+    Hospital(680,790,310,500,color5);
 
-    int color10[3]={70, 160, 179};
-    Hospital(800,910,310,350,color10);
+    int color6[3]={70, 160, 179};
+    Hospital(800,910,310,500,color6);
 
-    Building1(560,640,370,410,color10);
+    Building1(560,640,370,410,color2);
     ///
 
-    int color3[3]={45, 93, 168};
-    Hospital(340,450,270,310,color3);
+    int color7[3]={31, 147, 219};
+    Building4(320,390,270,530,color7);///for x axis /// difference = 70
 
-    int color4[3]={45, 112, 128};
-    Hospital(460,570,270,310,color4);
+    int color8[3]={169, 174, 176};
+    Building3(400,500,270,600,color8);///for x axis /// difference = 50
 
-    int color5[3]={45, 93, 168};
-    Hospital(700,810,270,310,color5);
+    int color9[3]={74, 95, 135};
+    Building4(520,590,270,530,color9);///for x axis /// difference = 70
 
-    int color12[3]={91, 172, 199};
-    Building3(820,920,270,600,color12);///for x axis /// difference = 70
+    int color10[3]={91, 172, 199};
+    Building3(820,920,270,600,color10);///for x axis /// difference = 70
 
     int color11[3]={169, 174, 176};
-    Building2(580,690,270,600,color11);///for x axis /// difference = 50
-    int color13[3]={161, 159, 159};
-    Building4(970,1040,270,530,color13);///for x axis /// difference = 70
+    Building2(600,710,270,600,color11);///for x axis /// difference = 50
+
+    Building4(720,790,270,530,color7);///for x axis /// difference = 70
+    Stadium();
 
     PlayGroud();
     RoadLights1();
